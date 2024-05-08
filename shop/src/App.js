@@ -1,10 +1,13 @@
 import { useState } from "react";
 import "./App.css";
-import { Button, Nav, Navbar, Container } from "react-bootstrap";
+import { Nav, Navbar, Container } from "react-bootstrap";
 import data from "./data";
+import { Routes, Route, Link, useNavigate } from "react-router-dom";
+import Detail from "./Detail";
 
 function App() {
   let [shoes] = useState(data);
+  let navigate = useNavigate();
 
   return (
     <div className="App">
@@ -12,26 +15,56 @@ function App() {
         <Container>
           <Navbar.Brand href="#home">Navbar</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                navigate("/");
+              }}
+            >
+              Home
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                navigate("/detail");
+              }}
+            >
+              Detail
+            </Nav.Link>
           </Nav>
         </Container>
       </Navbar>
 
-      <div className="main-bg"></div>
-      <div className="container">
-        <div className="row">
-          {shoes.map((a, i) => {
-            return <Card shoes={shoes[i]} i={i + 1}></Card>;
-          })}
-        </div>
-      </div>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <div className="main-bg"></div>
+              <div className="container">
+                <div className="row">
+                  {shoes.map((a, i) => {
+                    return <Card shoes={shoes[i]} i={i + 1}></Card>;
+                  })}
+                </div>
+              </div>
+            </>
+          }
+        />
+        <Route path="/detail" element={<Detail />} />
+        <Route path="*" element={<div>없는페이지에용</div>} />
+      </Routes>
     </div>
   );
 }
 
 export default App;
+
+function About() {
+  return (
+    <div>
+      <h4>회사정보임</h4>
+    </div>
+  );
+}
 
 function Card(props) {
   return (
