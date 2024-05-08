@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import { Nav, Navbar, Container } from "react-bootstrap";
 import data from "./data";
-import { Routes, Route, Link, useNavigate } from "react-router-dom";
+import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import Detail from "./Detail";
 
 function App() {
@@ -51,6 +51,11 @@ function App() {
         />
         <Route path="/detail" element={<Detail />} />
         <Route path="*" element={<div>없는페이지에용</div>} />
+        {/* Nested Routes */}
+        <Route path="/about" element={<Detail />}>
+          <Route path="member" element={<About />} />
+          <Route path="location" element={<About />} />
+        </Route>
       </Routes>
     </div>
   );
@@ -62,6 +67,7 @@ function About() {
   return (
     <div>
       <h4>회사정보임</h4>
+      <Outlet></Outlet>
     </div>
   );
 }
@@ -79,3 +85,6 @@ function Card(props) {
     </div>
   );
 }
+
+// Q. Nested routes 언제씀?
+// - 여러 유사한 페이지가 필요할때
