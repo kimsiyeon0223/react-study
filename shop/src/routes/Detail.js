@@ -1,4 +1,15 @@
 import { useParams } from "react-router-dom";
+import styled from "styled-components";
+
+let YellowBtn = styled.button`
+  background-color: yellow;
+  color: black;
+  padding: 10px;
+`;
+let Box = styled.div`
+  background-color: grey;
+  padding: 20px;
+`;
 
 function Detail(props) {
   let { id } = useParams();
@@ -7,6 +18,8 @@ function Detail(props) {
   });
   return (
     <div className="container">
+      <Box />
+      <YellowBtn>버튼</YellowBtn>
       <div className="row">
         <div className="col-md-6">
           <img
