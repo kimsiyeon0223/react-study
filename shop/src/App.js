@@ -3,7 +3,7 @@ import "./App.css";
 import { Nav, Navbar, Container } from "react-bootstrap";
 import data from "./data";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
-import Detail from "./Detail";
+import Detail from "./routes/Detail";
 
 function App() {
   let [shoes] = useState(data);
@@ -49,12 +49,17 @@ function App() {
             </>
           }
         />
-        <Route path="/detail" element={<Detail />} />
+        <Route path="/detail/:id" element={<Detail shoes={shoes} />} />
         <Route path="*" element={<div>없는페이지에용</div>} />
         {/* Nested Routes */}
-        <Route path="/about" element={<Detail />}>
-          <Route path="member" element={<About />} />
-          <Route path="location" element={<About />} />
+        <Route path="/about" element={<About />}>
+          <Route path="member" element={<div>멤버임</div>} />
+          <Route path="location" element={<div>위치정보임</div>} />
+        </Route>
+
+        <Route path="/event" element={<EventPage />}>
+          <Route path="one" element={<div>첫 주문시 양배추즙 서비스</div>} />
+          <Route path="two" element={<div>생일기념 쿠폰받기</div>} />
         </Route>
       </Routes>
     </div>
@@ -82,6 +87,15 @@ function Card(props) {
       />
       <h4>{props.shoes.title}</h4>
       <p>{props.shoes.price}</p>
+    </div>
+  );
+}
+
+function EventPage() {
+  return (
+    <div>
+      <h4>오늘의 이벤트</h4>
+      <Outlet></Outlet>
     </div>
   );
 }
