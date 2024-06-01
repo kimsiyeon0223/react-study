@@ -26,6 +26,7 @@ function Detail(props) {
   let [count, setCount] = useState(0);
   let [alert, setAlert] = useEffect(true);
 
+  // mount될때만 실행됨
   useEffect(() => {
     setTimeout(() => {
       setAlert(false);
