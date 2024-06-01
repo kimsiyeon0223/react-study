@@ -1,21 +1,24 @@
+import React from "react";
 import { useParams } from "react-router-dom";
-import styled from "styled-components";
 
-let YellowBtn = styled.button`
-  background-color: ${(props) => props.bg};
-  color: ${(props) => (props.bg == "blue" ? "white" : "black")};
-  padding: 10px;
-`;
+// 옛날 컴포넌트 문법
+class Detail2 extends React.Component {
+  componentDidMount() {
+    // 컴포넌트 마운트 될때 실행됨
+  }
+  componentDidUpdate() {
+    // 컴포넌트 update시 코드 실행됨
+  }
+  componentWillUnmount() {
+    // 컴포넌트 언마운트시 코드 실행됨
+  }
+}
 
 function Detail(props) {
   let { id } = useParams();
-  let finGoods = props.shoes.find(function (x) {
-    return x.id == id;
-  });
+  let findGoods = props.shoes.find((x) => x.id == id);
   return (
     <div className="container">
-      <YellowBtn bg="blue">버튼</YellowBtn>
-      <YellowBtn bg="orange">버튼</YellowBtn>
       <div className="row">
         <div className="col-md-6">
           <img
@@ -24,9 +27,9 @@ function Detail(props) {
           />
         </div>
         <div className="col-md-6">
-          <h4 className="pt-5">{finGoods.title}</h4>
-          <p>{finGoods.content}</p>
-          <p>{finGoods.price}</p>
+          <h4 className="pt-5">{findGoods.title}</h4>
+          <p>{findGoods.content}</p>
+          <p>{findGoods.price}</p>
           <button className="btn btn-danger">주문하기</button>
         </div>
       </div>
