@@ -30,7 +30,7 @@ function Detail(props) {
     setTimeout(() => {
       setAlert(false);
     }, 2000);
-  });
+  }, [count]); //count가 변경될때만 실행됨
 
   let { id } = useParams();
   let findGoods = props.shoes.find((x) => x.id === id);
