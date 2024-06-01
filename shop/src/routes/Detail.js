@@ -28,10 +28,14 @@ function Detail(props) {
 
   // mount될때만 실행됨
   useEffect(() => {
-    setTimeout(() => {
+    let a = setTimeout(() => {
       setAlert(false);
     }, 2000);
-  }, []);
+    return () => {
+      //useEffect 동작 전에 실행되는 코드
+      clearTimeout(a); // 타이머 제거해주는 함수
+    };
+  });
 
   let { id } = useParams();
   let findGoods = props.shoes.find((x) => x.id === id);
