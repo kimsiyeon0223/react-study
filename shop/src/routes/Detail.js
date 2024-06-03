@@ -72,3 +72,15 @@ function Detail(props) {
 }
 
 export default Detail;
+
+
+
+
+
+// useEffect(() => {}) 1. 재랜더링마다 코드 실행하고 싶으면
+// useEffect(() => {}, []) 2. mount시 1회 코드 실행하고 싶으면
+// useEffect(() => {
+//   return() => {
+//     3. unmount시 1회 코드실행하고싶으면
+//   }
+// })
