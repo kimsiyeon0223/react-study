@@ -19,12 +19,19 @@ function Detail(props) {
   // mount, update(재랜더링)시 코드 실행해주는 useEffect
   // useEffect 안에 있는 코드는 html 랜더링 후 동작한다.
   // useEffect 안에 적는 코드들은 어려운 연산, 서버에서 데이터 가져오는 작업, 타이머 장착하는거
-  useEffect(() => {
-    console.log("안녕");
-  });
+  // useEffect(() => {
+  //   console.log("안녕");
+  // });
 
   let [count, setCount] = useState(0);
   let [alert, setAlert] = useEffect(true);
+  let [num, setNum] = useState("");
+
+  useEffect(() => {
+    if (isNaN(num) == true) {
+      alert("그러지마세요");
+    }
+  }, [num]);
 
   // mount될때만 실행됨
   useEffect(() => {
@@ -65,6 +72,11 @@ function Detail(props) {
           <p>{findGoods.content}</p>
           <p>{findGoods.price}</p>
           <button className="btn btn-danger">주문하기</button>
+          <input
+            onChange={(e) => {
+              setNum(e.target.values);
+            }}
+          />
         </div>
       </div>
     </div>
@@ -72,10 +84,6 @@ function Detail(props) {
 }
 
 export default Detail;
-
-
-
-
 
 // useEffect(() => {}) 1. 재랜더링마다 코드 실행하고 싶으면
 // useEffect(() => {}, []) 2. mount시 1회 코드 실행하고 싶으면
