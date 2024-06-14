@@ -53,7 +53,9 @@ function App() {
                     .get("https://codingapple1.github.io/shop/data2.json")
                     .then((data) => {
                       console.log(data);
-                    });
+                    }).catch(() => {
+                      console.log('실패햇다')
+                    })
                 }}
               >
                 버튼
