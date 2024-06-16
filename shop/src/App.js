@@ -2,12 +2,12 @@ import { useState } from "react";
 import "./App.css";
 import { Nav, Navbar, Container } from "react-bootstrap";
 import data from "./data";
-import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
+import { Routes, Route, useNavigate, Outlet } from "react-router-dom";
 import Detail from "./routes/Detail";
 import axios from "axios";
 
 function App() {
-  let [shoes] = useState(data);
+  let [shoes, setShoes] = useState(data);
   let navigate = useNavigate();
 
   return (
@@ -51,11 +51,14 @@ function App() {
                 onClick={() => {
                   axios
                     .get("https://codingapple1.github.io/shop/data2.json")
-                    .then((data) => {
-                      console.log(data);
-                    }).catch(() => {
-                      console.log('실패햇다')
+                    .then((결과) => {
+                      console.log(결과.data);
+                      let copy = [...shoes, ...결과.data]; //...은 괄호를 벗겨주는 문법
+                      setShoes(copy);
                     })
+                    .catch(() => {
+                      console.log("실패햇다");
+                    });
                 }}
               >
                 버튼
