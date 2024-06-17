@@ -1,6 +1,7 @@
 // import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Nav } from "react-bootstrap";
 
 // // 옛날 컴포넌트 문법
 // class Detail2 extends React.Component {
@@ -72,11 +73,20 @@ function Detail(props) {
           <p>{findGoods.content}</p>
           <p>{findGoods.price}</p>
           <button className="btn btn-danger">주문하기</button>
-          <input
-            onChange={(e) => {
-              setNum(e.target.values);
-            }}
-          />
+          <Nav variant="tabs" defaultActiveKey="link0" > 
+            <Nav.Item>
+              <Nav.Link eventKey="link0">버튼0</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="link1">버튼1</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="link2">버튼2</Nav.Link>
+            </Nav.Item>
+          </Nav>
+          <div>내용0</div>
+          <div>내용1</div>
+          <div>내용2</div>
         </div>
       </div>
     </div>
