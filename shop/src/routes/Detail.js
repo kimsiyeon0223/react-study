@@ -115,11 +115,11 @@ function Detail(props) {
 }
 
 function TabContent(props) {
-  if (props.탭 == 0) {
+  if (props.탭 === 0) {
     return <div>내용0</div>;
-  } else if (props.탭 == 1) {
+  } else if (props.탭 === 1) {
     return <div>내용1</div>;
-  } else if (props.탭 == 1) {
+  } else if (props.탭 === 1) {
     return <div>내용2</div>;
   }
 }
