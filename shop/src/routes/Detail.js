@@ -76,13 +76,35 @@ function Detail(props) {
           <button className="btn btn-danger">주문하기</button>
           <Nav variant="tabs" defaultActiveKey="link0">
             <Nav.Item>
-              <Nav.Link eventKey="link0">버튼0</Nav.Link>
+              <Nav.Link
+                onClick={() => {
+                  탭변경(0);
+                }}
+                eventKey="link0"
+              >
+                버튼0
+              </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="link1">버튼1</Nav.Link>
+              <Nav.Link
+                onClick={() => {
+                  탭변경(1);
+                }}
+                on
+                eventKey="link1"
+              >
+                버튼1
+              </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="link2">버튼2</Nav.Link>
+              <Nav.Link
+                onClick={() => {
+                  탭변경(2);
+                }}
+                eventKey="link2"
+              >
+                버튼2
+              </Nav.Link>
             </Nav.Item>
           </Nav>
           <TabContent 탭={탭} />
