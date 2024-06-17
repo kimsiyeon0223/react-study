@@ -56,7 +56,7 @@ function App() {
                       let copy = [...shoes, ...결과.data]; //...은 괄호를 벗겨주는 문법
                       setShoes(copy);
                     });
-                  Promise.all([axios.get("/url1"), axios.get("/url2")]).then();
+                  // Promise.all([axios.get("/url1"), axios.get("/url2")]).then();
                 }}
               >
                 더보기
