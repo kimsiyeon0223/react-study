@@ -27,6 +27,7 @@ function Detail(props) {
   let [count, setCount] = useState(0);
   let [alert, setAlert] = useEffect(true);
   let [num, setNum] = useState("");
+  let [탭, 탭변경] = useState(0);
 
   useEffect(() => {
     if (isNaN(num) == true) {
@@ -73,7 +74,7 @@ function Detail(props) {
           <p>{findGoods.content}</p>
           <p>{findGoods.price}</p>
           <button className="btn btn-danger">주문하기</button>
-          <Nav variant="tabs" defaultActiveKey="link0" > 
+          <Nav variant="tabs" defaultActiveKey="link0">
             <Nav.Item>
               <Nav.Link eventKey="link0">버튼0</Nav.Link>
             </Nav.Item>
@@ -84,13 +85,21 @@ function Detail(props) {
               <Nav.Link eventKey="link2">버튼2</Nav.Link>
             </Nav.Item>
           </Nav>
-          <div>내용0</div>
-          <div>내용1</div>
-          <div>내용2</div>
+          <TabContent 탭={탭} />
         </div>
       </div>
     </div>
   );
+}
+
+function TabContent(props) {
+  if (props.탭 == 0) {
+    return <div>내용0</div>;
+  } else if (props.탭 == 1) {
+    return <div>내용1</div>;
+  } else if (props.탭 == 1) {
+    return <div>내용2</div>;
+  }
 }
 
 export default Detail;
