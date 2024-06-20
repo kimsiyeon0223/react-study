@@ -30,7 +30,7 @@ function Detail(props) {
   let [탭, 탭변경] = useState(0);
 
   useEffect(() => {
-    if (isNaN(num) == true) {
+    if (isNaN(num) === true) {
       alert("그러지마세요");
     }
   }, [num]);
@@ -115,7 +115,7 @@ function Detail(props) {
 }
 
 function TabContent({ 탭 }) {
-  return [<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][탭];
+  return [<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][탭]; //탭의 값에 따라 보이게됨
 }
 
 export default Detail;
