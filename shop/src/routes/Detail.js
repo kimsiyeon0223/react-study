@@ -115,7 +115,13 @@ function Detail(props) {
 }
 
 function TabContent({ 탭 }) {
-  return [<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][탭]; //탭의 값에 따라 보이게됨
+  let [fade, setFade] = useState("");
+  useEffect(() => {}, [탭]);
+  return (
+    <div className={`start ${fade}`}>
+      {[<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][탭]}
+    </div>
+  );
 }
 
 export default Detail;
