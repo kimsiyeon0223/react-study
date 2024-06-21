@@ -1,9 +1,11 @@
 // import React from "react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Nav } from "react-bootstrap";
+import { Context1 } from "../App";
 
 function Detail(props) {
+  let a = useContext(Context1); //보관함 해체해주는 함수
   let [count, setCount] = useState(0);
   let [alert, setAlert] = useEffect(true);
   let [num, setNum] = useState("");
