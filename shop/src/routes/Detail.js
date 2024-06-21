@@ -3,27 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Nav } from "react-bootstrap";
 
-// // 옛날 컴포넌트 문법
-// class Detail2 extends React.Component {
-//   componentDidMount() {
-//     // 컴포넌트 마운트 될때 실행됨
-//   }
-//   componentDidUpdate() {
-//     // 컴포넌트 update시 코드 실행됨
-//   }
-//   componentWillUnmount() {
-//     // 컴포넌트 언마운트시 코드 실행됨
-//   }
-// }
-
 function Detail(props) {
-  // mount, update(재랜더링)시 코드 실행해주는 useEffect
-  // useEffect 안에 있는 코드는 html 랜더링 후 동작한다.
-  // useEffect 안에 적는 코드들은 어려운 연산, 서버에서 데이터 가져오는 작업, 타이머 장착하는거
-  // useEffect(() => {
-  //   console.log("안녕");
-  // });
-
   let [count, setCount] = useState(0);
   let [alert, setAlert] = useEffect(true);
   let [num, setNum] = useState("");
@@ -116,20 +96,20 @@ function Detail(props) {
 
 function TabContent({ 탭 }) {
   let [fade, setFade] = useState("");
-  useEffect(() => {}, [탭]);
+  useEffect(() => {
+    setTimeout(() => {
+      setFade("end");
+    }, 10);
+    return () => {
+      //useEffect 실행전에 실행되는 코드
+      setFade("");
+    };
+  }, [탭]);
   return (
-    <div className={`start ${fade}`}>
+    <div className={`start` + fade}>
       {[<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][탭]}
     </div>
   );
 }
 
 export default Detail;
-
-// useEffect(() => {}) 1. 재랜더링마다 코드 실행하고 싶으면
-// useEffect(() => {}, []) 2. mount시 1회 코드 실행하고 싶으면
-// useEffect(() => {
-//   return() => {
-//     3. unmount시 1회 코드실행하고싶으면
-//   }
-// })
