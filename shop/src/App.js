@@ -73,6 +73,11 @@ function App() {
             <Context1.Provider value={{ 재고, shoes }}>
               <Detail shoes={shoes} />{" "}
               {/* 여기안의 모든 컴포넌트는 재고 shoes 사용가능 */}
+              {/* 
+              Context API 특징
+              1. state 변경시 쓸데없는 것까지 재렌더링됨
+              2. 나중에 컴포넌트 재사용이 어려움
+              */}
             </Context1.Provider>
           }
         />
