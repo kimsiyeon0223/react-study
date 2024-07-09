@@ -18,3 +18,6 @@ export default configureStore({
     stock: stock.reducer,
   },
 });
+
+
+//redux store 안에 모든걸 넣진 말자
