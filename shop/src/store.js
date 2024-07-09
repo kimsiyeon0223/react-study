@@ -6,8 +6,15 @@ let user = createSlice({
   initialState: "kim",
 });
 
+let stock = createSlice({
+  //useState역할, 슬라이스라고 부름
+  name: "user",
+  initialState: [10, 11, 12],
+});
+
 export default configureStore({
   reducer: {
     user: user.reducer, //state등록완료
+    stock: stock.reducer,
   },
 });
