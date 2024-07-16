@@ -17,12 +17,14 @@ function Cart() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>{state.cart[1].name}</td>
-            <td>안녕</td>
-            <td>안녕</td>
-          </tr>
+          {state.cart.map(() => (
+            <tr>
+              <td>1</td>
+              <td>{state.cart[1].name}</td>
+              <td>안녕</td>
+              <td>안녕</td>
+            </tr>
+          ))}
         </tbody>
       </Table>
     </div>
