@@ -2,10 +2,9 @@ import { Table } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 function Cart() {
-  let a = useSelector(
-    (state /*store안에 있는 모든 state를 뜻함*/) => state.user,
+  let state = useSelector(
+    (state /*store안에 있는 모든 state를 뜻함*/) => state,
   ); //useSelect() -> redux store를 가져와줌
-  console(a);
   return (
     <div>
       <Table>
@@ -20,7 +19,7 @@ function Cart() {
         <tbody>
           <tr>
             <td>1</td>
-            <td>안녕</td>
+            <td>{state.cart[1].name}</td>
             <td>안녕</td>
             <td>안녕</td>
           </tr>
